@@ -3,6 +3,11 @@
   --primary-color: #22577a;
   --secondary-color: #38a3a5;
   --bg-color: #c7f9cc;
+  
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {
@@ -18,10 +23,10 @@ body {
 }
 
 .btn {
-  background-color: #fff;
-  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  color: #fff;
   display: inline-block;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   border-radius: 1rem;
   border: none;
   cursor: pointer;
@@ -31,13 +36,13 @@ body {
 }
 
 .btn:hover {
-  background-color: var(--secondary-color);
-  color: #fff;
+  background-color: #fff;
+  color: var(--primary-color);
 }
 
 .container {
   min-height: 100vh;
-  max-width: 80%;
+  max-width: 90%;
   margin: 0 auto;
   padding: 5rem;
   display: flex;
@@ -49,7 +54,7 @@ body {
 .hero {
   background-color: var(--primary-color);
   color: white;
-  min-width: 100%;
+  width: 100%;
   padding: 3rem;
   display: flex;
   flex-direction: column;
@@ -65,13 +70,26 @@ body {
 }
 
 .hero-container {
-  min-width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   font-size: 10rem;
   font-weight: bold;
+}
+
+.hero-sub {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.hero-img {
+  width: 15rem;
+  height: 15rem;
+  align-self: center;
 }
 
 .hero-location {
@@ -82,22 +100,22 @@ body {
   align-self: center;
 }
 
+.location-text {
+  font-size: 1.5rem;
+}
+
 .btn-hero {
   align-self: flex-end;
 }
 
 .add-info {
-  background-color: var(--primary-color);
-  color: white;
-  min-width: 100%;
-  padding: 3rem;
+  background-color: red;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
-  font-size: 1.5rem;
 }
 
 .add-num {
-  font-size: 2rem;
+  font-size: 3rem;
 }
