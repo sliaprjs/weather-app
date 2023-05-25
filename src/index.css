@@ -1,5 +1,8 @@
 :root {
   font-size: 62.5%;
+  --primary-color: #22577a;
+  --secondary-color: #38a3a5;
+  --bg-color: #c7f9cc;
 }
 
 * {
@@ -10,4 +13,47 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  min-height: 100vh;
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5rem;
+}
+
+.hero {
+  background-color: var(--primary-color);
+  color: white;
+  min-width: 100%;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.hero-greeting {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+}
+
+.hero-container {
+  min-width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 10rem;
+  font-weight: bold;
+}
+
+.hero-location {
+  font-size: 3rem;
 }
