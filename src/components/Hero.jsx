@@ -1,8 +1,9 @@
 import { useState } from "react";
 import AdditionalInfo from "./AdditionalInfo";
 import Button from "./Button";
+import Search from "./Search";
 
-const Hero = ({info}) => {
+const Hero = ({info, place, onSearch}) => {
   const [isShowing, setIsShowing] = useState(false);
 
   const handleShowing = () => {
@@ -17,18 +18,25 @@ const Hero = ({info}) => {
   return (
     <>
       <div className="hero">
+        <div className="service-container">
           <p className="hero-greeting">Good {hours < 12 ? 'morning' : hours < 18 ? 'afternoon' : 'evening'}!</p>
-          <div className="hero-container">
-            <div className="hero-sub">{currentTime}</div>
-            <div className="hero-sub">
-              <img className='hero-img' src={iconUrl} alt="weather icon" />
-            </div>
-            <div className="hero-sub">{(info.main.temp - 273.15).toFixed()}°C</div>
+          <p className="hero-location"><span className="location-text">You are in</span> {info.name}, {info.sys.country}</p>
+        </div>
+        <div className="hero-container">
+          <div className="hero-sub">{currentTime}</div>
+          <div className="hero-sub">
+            <img className='hero-img' src={iconUrl} alt="weather icon" />
           </div>
-          <p className="hero-location"><span className="location-text">You are currently in</span> {info.name}, {info.sys.country}</p>
+          <div className="hero-sub">{(info.main.temp - 273.15).toFixed()}°C</div>
+        </div>
+        <div className="service-container">
+          <Search place={place} onSearch={onSearch}/>
           <Button isShowing={isShowing} onShow={handleShowing}/>
+        </div>
       </div>
+      
       <AdditionalInfo info={info} showing={isShowing}/>
+      
     </>
   )
 }
