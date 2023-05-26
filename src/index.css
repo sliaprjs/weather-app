@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
+
+
 :root {
   font-size: 62.5%;
   --primary-color: #22577a;
@@ -17,7 +21,7 @@ html {
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   background-color: var(--bg-color);
   color: var(--primary-color);
 }
@@ -25,7 +29,9 @@ body {
 .btn {
   background-color: var(--secondary-color);
   color: #fff;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   padding: 1rem 1.5rem;
   border-radius: 1rem;
   border: none;
@@ -108,14 +114,32 @@ body {
   align-self: flex-end;
 }
 
-.add-info {
-  background-color: red;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.material-symbols-outlined.arrow {
+  border: 0.1rem solid var(--primary-color);
+  border-radius: 50%;
 }
 
-.add-num {
-  font-size: 3rem;
+.add-info {
+  background-color: #22577a;
+  color: #fff;
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.add-info.active {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.add-sub {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2rem;
 }

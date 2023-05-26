@@ -8,7 +8,11 @@ const App = () => {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
-      getData(position.coords.latitude, position.coords.longitude);
+      try {
+        getData(position.coords.latitude, position.coords.longitude);
+      } catch (error) {
+        console.log(error);
+      }
     });
   }, [])
 
