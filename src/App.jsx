@@ -3,6 +3,12 @@ import {useState, useEffect} from 'react';
 import Hero from './components/Hero';
 import INITIAL from './components/initial';
 
+import Sky from './assets/sky.jpg';
+import Clouds from './assets/clouds.jpg';
+import Rain from './assets/rain.jpg';
+import Snow from './assets/snow.jpg';
+import Mist from './assets/mist.jpg';
+
 const App = () => {
   const [weatherInfo, setWeatherInfo] = useState(INITIAL);
   const [place, setPlace] = useState('');
@@ -35,12 +41,31 @@ const App = () => {
     setPlace(e.target[0].value);
   }
 
+  let imageUrl;
+  if (weatherInfo.weather[0].description.includes('sky')) {
+    imageUrl = Sky;
+  } else if (weatherInfo.weather[0].description.includes('clouds')) {
+    imageUrl = Clouds;
+  } else if (weatherInfo.weather[0].description.includes('rain')) {
+    imageUrl = Rain;
+  } else if (weatherInfo.weather[0].description.includes('mist')) {
+    imageUrl = Mist;
+  } else {
+    imageUrl = Snow;
+  }
+
+  const bgImage = {
+    background: `url(".${imageUrl}") no-repeat center center/cover`,
+  }
+
   console.log(weatherInfo);
 
   return (
-    <main className='container'>
-      <Hero info={weatherInfo} place={place} onSearch={handleInput}/>
-    </main>
+    <div style={bgImage}>
+      <main className='container'>
+        <Hero info={weatherInfo} place={place} onSearch={handleInput}/>
+      </main>
+    </div>
   )
 }
 

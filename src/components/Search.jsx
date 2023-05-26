@@ -3,8 +3,8 @@ import React from 'react'
 const Search = ({place, onSearch}) => {
   return (
     <form className='search-container' onSubmit={onSearch}>
-      <input className="place-input"/>
-      <button className="btn" type='submit'>Go!</button>
+      <input className="place-input" placeholder='Another location'/>
+      <button className="btn" type='submit'>Search</button>
     </form>
   )
 }
