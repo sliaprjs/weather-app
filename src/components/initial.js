@@ -35,13 +35,13 @@ const INITIAL = {
   "sys": {
       "type": 2,
       "id": 2075663,
-      "country": "IT",
+      "country": "404",
       "sunrise": 1684986007,
       "sunset": 1685040364
   },
   "timezone": 7200,
   "id": 3163858,
-  "name": "Zocca",
+  "name": "Try again",
   "cod": 200
 }
 

@@ -8,6 +8,7 @@ import Clouds from './assets/clouds.jpg';
 import Rain from './assets/rain.jpg';
 import Snow from './assets/snow.jpg';
 import Mist from './assets/mist.jpg';
+import Error from './assets/error.jpg';
 
 const App = () => {
   const [weatherInfo, setWeatherInfo] = useState(INITIAL);
@@ -27,13 +28,23 @@ const App = () => {
   const getData = async (lat, long) => {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=26c391408cfb7f28236135730fbed2c7`);
     const data = await response.json()
-    setWeatherInfo(data);
+    console.log(data.cod);
+    if (data.cod === 200) {
+      setWeatherInfo(data);
+    } else {
+      setWeatherInfo(INITIAL);
+    }
   }
 
   const getPlace = async (place) => {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=26c391408cfb7f28236135730fbed2c7`);
     const data = await response.json()
-    setWeatherInfo(data);
+    console.log(data.cod);
+    if (data.cod === 200) {
+      setWeatherInfo(data);
+    } else {
+      setWeatherInfo(INITIAL);
+    }
   }
 
   const handleInput = (e) => {
@@ -42,7 +53,9 @@ const App = () => {
   }
 
   let imageUrl;
-  if (weatherInfo.weather[0].description.includes('sky')) {
+  if (weatherInfo.sys.country === '404') {
+    imageUrl = Error;
+  } else if (weatherInfo.weather[0].description.includes('sky')) {
     imageUrl = Sky;
   } else if (weatherInfo.weather[0].description.includes('clouds')) {
     imageUrl = Clouds;
@@ -53,6 +66,7 @@ const App = () => {
   } else {
     imageUrl = Snow;
   }
+  
 
   const bgImage = {
     background: `url(".${imageUrl}") no-repeat center center/cover`,
