@@ -10,8 +10,6 @@ const Hero = ({info, place, onSearch}) => {
     setIsShowing(!isShowing);
   }
 
-  console.log(info.timezone);
-
   const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false, timezone: info.timezone}).slice(0, 5);
   const hours = new Date().getHours();
 

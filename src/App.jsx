@@ -28,7 +28,6 @@ const App = () => {
   const getData = async (lat, long) => {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=26c391408cfb7f28236135730fbed2c7`);
     const data = await response.json()
-    console.log(data.cod);
     if (data.cod === 200) {
       setWeatherInfo(data);
     } else {
@@ -39,7 +38,6 @@ const App = () => {
   const getPlace = async (place) => {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=26c391408cfb7f28236135730fbed2c7`);
     const data = await response.json()
-    console.log(data.cod);
     if (data.cod === 200) {
       setWeatherInfo(data);
     } else {
