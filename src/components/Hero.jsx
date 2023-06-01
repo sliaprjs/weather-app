@@ -10,7 +10,10 @@ const Hero = ({info, place, onSearch}) => {
     setIsShowing(!isShowing);
   }
 
-  const hours = new Date().getUTCHours() + (info.timezone /3600);
+  let hours = new Date().getUTCHours() + (info.timezone /3600);
+  if (hours > 23) {
+    hours -= 24;
+  }
   const utcMinutes = new Date().getUTCMinutes();
 
   const iconUrl = `https://openweathermap.org/img/wn/${info.weather[0].icon}@2x.png`;
@@ -25,7 +28,7 @@ const Hero = ({info, place, onSearch}) => {
           <p className="hero-location">{info.name}, {info.sys.country}</p>
         </div>
         {noError ? <div className="hero-container">
-          <div className="hero-sub">{`${hours}:${utcMinutes}`}</div>
+          <div className="hero-sub">{`${hours < 10 ? `0${hours}` : hours}:${utcMinutes < 10 ? `0${utcMinutes}` : utcMinutes}`}</div>
           <div className="hero-sub">{(info.main.temp - 273.15).toFixed()}°C</div>
         </div> : null}
         <div className="service-container">
