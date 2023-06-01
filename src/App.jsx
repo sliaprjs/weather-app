@@ -70,8 +70,6 @@ const App = () => {
     background: `url(".${imageUrl}") no-repeat center center/cover`,
   }
 
-  console.log(weatherInfo);
-
   return (
     <div style={bgImage}>
       <main className='container'>
