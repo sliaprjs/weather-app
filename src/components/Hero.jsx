@@ -10,8 +10,8 @@ const Hero = ({info, place, onSearch}) => {
     setIsShowing(!isShowing);
   }
 
-  const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', hour12: false, timezone: info.timezone}).slice(0, 5);
-  const hours = new Date().getHours();
+  const hours = new Date().getUTCHours() + (info.timezone /3600);
+  const utcMinutes = new Date().getUTCMinutes();
 
   const iconUrl = `https://openweathermap.org/img/wn/${info.weather[0].icon}@2x.png`;
 
@@ -25,7 +25,7 @@ const Hero = ({info, place, onSearch}) => {
           <p className="hero-location">{info.name}, {info.sys.country}</p>
         </div>
         {noError ? <div className="hero-container">
-          <div className="hero-sub">{currentTime}</div>
+          <div className="hero-sub">{`${hours}:${utcMinutes}`}</div>
           <div className="hero-sub">{(info.main.temp - 273.15).toFixed()}°C</div>
         </div> : null}
         <div className="service-container">
